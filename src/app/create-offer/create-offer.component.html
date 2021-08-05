@@ -1,0 +1,62 @@
+<main>
+    <section class="py-5" id="offer-trip-page">
+        <div class="container offer-trip">
+            <h1>Offer trip</h1>
+            <div>
+                <form action="" method="POST" (ngSubmit)="createOffer()" #offerForm>
+     
+                    <div class="form-group offer-input">
+                        <div class="group">
+                            <label for="name"> <i class="fas fa-hotel"></i> Name </label>
+                            <input type="text" class="form-control-2" id="name" placeholder="Gergana"
+                            name="name" value="" [(ngModel)]="offer.name">
+                        </div>
+
+                        <div class="group">
+                            <label for="destination"> <i class="fas fa-map-marker-alt"></i> Destination</label>
+                            <input type="text" class="form-control-2" id="destination" placeholder="Varna" name="destination"
+                            value="" [(ngModel)]="offer.destination">
+                        </div>
+                    </div>
+                  
+                    <div class="form-group offer-input">
+                        <div class="group">
+                            <label for="date"> <i class="far fa-calendar-alt"></i> Date</label>
+
+                            <input type="date" class="form-control-2" id="date" placeholder="18 May 2021" name="date"
+                                value="" [(ngModel)]="offer.date">
+                        </div>
+                       
+                        <div class="group">
+                            <label for="accommodation"> <i class="far fa-clock"></i> Accommodation</label>
+
+                            <input type="time" class="form-control-2" id="accommodation" placeholder="14:00 PM" name="accommodation"
+                                value="" [(ngModel)]="offer.accommodation">
+                        </div>               
+                    </div>
+ 
+                    <div class="form-group offer-input">
+                        <div class="group">
+                            <label for="rooms"><i class="fas fa-bed"></i> Rooms</label>
+                            <input type="text" class="form-control-2" id="rooms" placeholder="2" name="rooms" value="" [(ngModel)]="offer.rooms">
+                        </div>
+
+                        <div class="group">
+                            <label for="price" ><i class="fas fa-tag"></i> Price</label>
+                            <input type="text" class="form-control-2" id="price" placeholder="25" name="price" value="" [(ngModel)]="offer.price">
+
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="image"><i class="fas fa-image"></i>Hotel image</label>
+                        <textarea class="form-control" id="image" placeholder="Insert a link for your hotel"
+                            name="image" [(ngModel)]="offer.image"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>

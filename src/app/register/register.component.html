@@ -1,0 +1,38 @@
+
+    <main>
+        <section class="py-5" id="register-page">
+            <div class="container register-page">
+                <h1>Register</h1>
+                <div class="register">
+                    <form action="" method="POST">
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input [(ngModel)]="email" type="text" class="form-control" id="email" placeholder="Enter email" name="email"
+                                value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input [(ngModel)]="password" type="password" class="form-control" id="password" placeholder="Password" name="password"
+                                value="">
+                        </div>
+                        <div class="form-group">
+                            <label for="rePassword">Repeat Password</label>
+                            <input type="password" class="form-control" id="rePassword" placeholder="Repeat Password"
+                                name="rePassword" value="">
+                        </div>
+                        <label>Gender</label>
+                        <div class="gender">
+                            <input [(ngModel)]="gender" type="radio" id="female" name="genderType" value="female">
+                            <label for="female">Female</label>
+                            <input [(ngModel)]="gender" type="radio" id="male" name="genderType" value="male" checked>
+                            <label for="male">Male</label>
+                        </div>
+                        <div class="form-group">
+                            <p>Already have account? <a href="/auth/login">Login Now!</a></p>
+                        </div>
+                        <button type="button" (click)="register(email, password)" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>

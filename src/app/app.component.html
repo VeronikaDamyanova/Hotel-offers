@@ -1,0 +1,52 @@
+
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+      <!-- Do not forget to change the path to the images -->
+      <a routerLink="/">
+        <img class="car logo" src="../assets/img/logo.png">
+      </a>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+
+          <ul class="navbar-nav ml-auto">
+              <!-- Guest users and Logged users -->
+              <li class="nav-item">
+                  <a class="nav-link" routerLink="/" routerLinkActive="active">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" routerLink="/hotel-offers">Hotel Offers</a>
+              </li>
+
+              <!-- Logged users -->
+              <div class="container1" *ngIf="getIsUserLoggedIn(); else userLoggedOut">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/create-offer" >Create Offer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/profile">Profile</a>
+                </li>
+                <li class="nav-item" (click)="logout()">
+                    <a href="" class="nav-link">Logout as [ {{getUserEmail()}} ]</a>
+                </li>
+            </div>
+            <ng-template #userLoggedOut>
+                <!-- Guest users -->
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/register" >Register</a>
+                </li>
+            </ng-template>
+
+          </ul>
+      </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>
+
+<footer id="sticky-footer">
+  <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Hotel Offers 2021</p>
+  </div>
+</footer>

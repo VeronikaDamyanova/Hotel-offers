@@ -1,0 +1,42 @@
+    <main>
+        <section class="container" id="shared-trips-page">
+            <header class="trip">
+                <h1>Welcome to the best hotel offers!</h1>
+                <p class="lead">Our services are the best way to find the perfect place to relax.</p>
+            </header>
+            <div class="row text-center">
+                <!-- If there are shared trips in the database display each of them -->
+
+                <!-- trip #1 -->
+               
+                <div class="col-lg-4 col-md-6 mb-4" *ngFor="let offer of offers | async">
+                    <div id={{offer.id}} class="card h-100">
+                        <img class="card-img-top"
+                            src="{{offer.image}}"
+                            alt="">
+                        <div class="card-body">
+                            <h5 class="mt-4 card-info"><i class="far fa-clock"></i> Name: <span>{{offer.name}}</span></h5>
+                            <h5 class="mt-4 card-info"><i class="fas fa-route"></i> <span>Destination</span> -
+                                <span>{{offer.destination}}</span></h5>
+                            <h5 class="mt-4 card-info"><i class="far fa-calendar-alt"></i> Date: <span>{{offer.date}}</span>
+                            </h5>
+                            <h5 class="mt-4 card-info"><i class="fas fa-hand-holding-usd"></i> Price: <span>{{offer.price}}</span> BGN</h5>
+                        </div>
+                        <div class="card-footer">
+                            <a *ngIf="getIsUserLoggedIn()" href="/edit-offer/{{offer.id}}" class="btn btn-primary margin-right">Edit</a>
+                            <a *ngIf="getIsUserLoggedIn()" (click)="deleteHotelOffer(offer.id)" class="btn btn-danger">Delete</a>
+                            <div (click)="toggleOfferToFavorites(offer.id, $event)"><a><i class="far fa-star" #star></i> Star it</a></div>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <!-- If there are no shared trips in the database -->
+                <div class="no-trips">
+                    <img src="../../assets/img/test.jpg" />
+                    <p class="lead">Enjoy your life...</p>
+                </div>
+
+            </div>
+        </section>
+    </main>

@@ -1,0 +1,18 @@
+.offer-input .group {
+    width: 45%;
+}
+
+.offer-input .group input {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .offer-input {
+        flex-direction: column;
+    }
+
+    .offer-input .group {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+}

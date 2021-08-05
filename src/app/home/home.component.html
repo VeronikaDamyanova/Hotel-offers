@@ -1,0 +1,57 @@
+<main>
+    <section class="py-5" style="background-image: url('../../assets/img/hero-image.jpg');background-size: cover;background-position: center;">
+        <div class="px-4 py-5 text-center hero-section">
+            <div class="py-5">
+              <h1 class="display-5 fw-bold">Explore our best destinations</h1>
+              <div class="col-lg-6 mx-auto">
+                <p class="fs-5 mb-4 info">With a world full of fascinating destinations, choosing the perfect vacation spot can present a challenge. That's why we used expert opinions, reader votes and current trends – and evaluated sights, cultures, scenic beauty, food scenes and more – to compile this list of the world's best places to visit. Use these recommendations to craft your travel bucket list, and cast your vote below to help us determine next year's list.</p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                  <a routerLink="/hotel-offers" class="btn btn-outline white-btn btn-lg px-4">Hotel Offers</a>
+                </div>
+              </div>
+            </div> 
+        </div>
+    </section>
+   
+
+    <section id="home-page" class="py-5">
+        <div style="height: 15vh;"></div>
+        <div class="container home">
+            <h2>Choose your destination</h2>
+            <div>
+                <p class="lead">Experience your holiday of excellence, where natural luxury and fine living are brought to perfection.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <h2 class="text-center">Last offers</h2>
+
+        <div class="row text-center">
+
+            <!-- If there are shared trips in the database display each of them -->
+
+            <!-- trip #1 -->
+            <div class="col-lg-4 col-md-6 mb-4" *ngFor="let offer of offers  | async; let i=index">
+                <div *ngIf="i<3" class="card h-100">
+                    <img class="card-img-top"
+                        src="{{offer.image}}"
+                        alt="">
+                    <div class="card-body">
+                        <h5 class="mt-4 card-info"><i class="far fa-clock"></i> Name: <span>{{offer.name}}</span></h5>
+                        <h5 class="mt-4 card-info"><i class="fas fa-route"></i> <span>Destination</span> -
+                            <span>{{offer.destination}}</span></h5>
+                        <h5 class="mt-4 card-info"><i class="far fa-calendar-alt"></i> Date: <span>{{offer.date}}</span>
+                        </h5>
+                        <h5 class="mt-4 card-info"><i class="fas fa-hand-holding-usd"></i> Price: <span>{{offer.price}}</span> BGN</h5>
+                    </div>
+                    <div class="card-footer">
+                        <a href="/hotel-offers" class="btn btn-primary">Details</a>
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+    </section> 
+</main>
