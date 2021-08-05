@@ -12,6 +12,7 @@ export class RegisterComponent implements OnInit {
   email: string = '';
   password: string = '';
   gender: string = '';
+  rePassword: string = '';
 
   constructor(public db: AngularFirestore, public firebaseAuth: AngularFireAuth, public router: Router) { }
 
@@ -19,6 +20,10 @@ export class RegisterComponent implements OnInit {
   }
 
   register(email: string, password: string) {
+    if(password !== this.rePassword) {
+      alert("Passwords must match!")
+      return;
+    }
     return this.firebaseAuth.createUserWithEmailAndPassword(email, password)
     .then((result: any) => {
       this.db.collection("users").add({email: this.email, gender: this.gender, favorites: []});

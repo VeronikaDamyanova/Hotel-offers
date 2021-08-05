@@ -9,8 +9,6 @@ import {ElementRef, ViewChild} from '@angular/core';
   styleUrls: ['./hotel-offers.component.css']
 })
 export class HotelOffersComponent implements OnInit {
-  @ViewChild('star') star: ElementRef;
-
   offers: Observable<any[]> | Observable<any> | any;
   currentUser:any;
   constructor(public db: AngularFirestore) {
@@ -44,14 +42,18 @@ export class HotelOffersComponent implements OnInit {
   }
 
   toggleOfferToFavorites(offerId:any, $event:any) {
+    $event.preventDefault();
+    $event.stopPropagation();
     this.toggleStar($event.target);
+
     setTimeout(() => {
+
       if (this.isStarred($event.target)) {
         this.addToFavorites(offerId);
       } else {
         this.removeFromFavorites(offerId);
       }
-    }, 100)
+    }, 1000)
   }
 
   getUser() {
@@ -89,7 +91,12 @@ export class HotelOffersComponent implements OnInit {
   }
 
   toggleStar(el:any) {
-    this.getStar(el).classList.toggle('fas');
+    let star = this.getStar(el);
+    if (star.classList.contains('fas')) {
+      star.classList.remove('fas')
+    } else {
+      star.classList.add('fas')
+    }
   }
 
   isStarred(el:any) {
