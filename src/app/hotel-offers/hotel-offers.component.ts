@@ -12,7 +12,9 @@ export class HotelOffersComponent implements OnInit {
   offers: Observable<any[]> | Observable<any> | any;
   currentUser:any;
   constructor(public db: AngularFirestore) {
-    this.offers = db.collection('offers').valueChanges({idField: 'id'})
+    db.collection('offers').valueChanges({idField: 'id'}).subscribe((offers:any) => {
+      this.offers = offers.sort((offer1: any, offer2: any) => offer1.name.localeCompare(offer2.name))
+    });
   }
 
   ngOnInit(): void {
